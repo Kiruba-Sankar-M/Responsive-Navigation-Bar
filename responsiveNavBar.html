@@ -1,0 +1,110 @@
+<template>
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__data">
+                <a href="#" class="nav__logo">
+                    <img src={companyLogoSrc} style={comapanyLogoStyle} />
+                </a>
+                <div class="nav__toggle" id="nav-toggle" onclick={toggleMenu}>
+                    <lightning-icon icon-name="utility:apps" alternative-text="Menu" size="small"
+                        class="nav__burger"></lightning-icon>
+                    <lightning-icon icon-name="utility:close" alternative-text="Close" size="small"
+                        class="nav__close"></lightning-icon>
+                </div>
+            </div>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <template for:each={navItems} for:item="item">
+                        <li key={item.label} class="dropdown__item">
+                            <div class="nav__link">
+                                <lightning-icon icon-name={item.icon} alternative-text={item.label} size="small"
+                                    lwc:if={item.icon}></lightning-icon>
+                                <lightning-icon icon-name={item.icon} alternative-text={item.label} size="small"
+                                    lwc:else></lightning-icon>
+                                <a href={item.target} class="" lwc:if={item.openInNewTab} target="_blank">
+                                    {item.label}
+                                </a>
+                                <a href={item.target} class="" lwc:else target="_self">
+                                    {item.label}
+                                </a>
+                                <template if:true={item.subItems}>
+                                    <lightning-icon icon-name="utility:down" class="dropdown__arrow"
+                                        size="x-small"></lightning-icon>
+                                </template>
+                            </div>
+                            <template if:true={item.subItems}>
+                                <ul class="dropdown__menu">
+                                    <template for:each={item.subItems} for:item="subItem">
+                                        <li key={subItem.label} class="dropdown__subitem">
+                                            <div class="dropdown__link">
+                                                <lightning-icon icon-name={subItem.icon} size="small"
+                                                    lwc:if={subItem.icon}></lightning-icon>
+                                                <lightning-icon icon-name={subItem.icon} size="small"
+                                                    lwc:else></lightning-icon>
+                                                <a href={subItem.target} class="dropdown__sublink"
+                                                    lwc:if={subItem.openInNewTab} target="_blank">
+                                                    {subItem.label}
+                                                </a>
+                                                <a href={subItem.target} class="dropdown__sublink" lwc:else
+                                                    target="_self">
+                                                    {subItem.label}
+                                                </a>
+                                                <template if:true={subItem.subItems}>
+                                                    <lightning-icon icon-name="utility:add" class="dropdown__arrow"
+                                                        size="x-small"></lightning-icon>
+                                                </template>
+                                            </div>
+                                            <template if:true={subItem.subItems}>
+                                                <ul class="dropdown__submenu">
+                                                    <template for:each={subItem.subItems} for:item="subSubItem">
+                                                        <li key={subSubItem.label}>
+                                                            <a href={subSubItem.target} class="dropdown__sublink"
+                                                                lwc:if={subSubItem.openInNewTab} target="_blank">
+                                                                {subSubItem.label}
+                                                            </a>
+                                                            <a href={subSubItem.target} class="dropdown__sublink"
+                                                                lwc:else target="_self">
+                                                                {subSubItem.label}
+                                                            </a>
+                                                        </li>
+                                                    </template>
+                                                </ul>
+                                            </template>
+                                        </li>
+                                    </template>
+                                </ul>
+                            </template>
+                        </li>
+                    </template>
+                    <!-- Profile and Logout -->
+                    <template if:true={showProfile}>
+                        <li class="nav__profile">
+                            <a href={profileLink} class="nav__link" lwc:if={isDesktopView}>
+                                <lightning-icon icon-name="utility:user" alternative-text="Profile"
+                                    size="small"></lightning-icon>
+                            </a>
+                            <a href={profileLink} class="nav__link" lwc:else>
+                                <lightning-icon icon-name="utility:user" alternative-text="Profile"
+                                    size="small"></lightning-icon> Profile
+                            </a>
+                        </li>
+                    </template>
+                    <template if:true={showLogout}>
+                        <li class="nav__logout">
+                            <a href={logoutLink} class="nav__link" lwc:if={isDesktopView}>
+                                <lightning-icon icon-name="utility:logout" alternative-text="Logout"
+                                    size="small"></lightning-icon>
+                            </a>
+                            <a href={logoutLink} class="nav__link" lwc:else>
+                                <lightning-icon icon-name="utility:logout" alternative-text="Logout"
+                                    size="small"></lightning-icon> Logout
+                            </a>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+            <!-- Profile and Logout -->
+            <!-- Here I need to add profile and logout icon. in desktop view icons only show up in tablet and mobile view along with icon label will also be shown -->
+        </nav>
+    </header>
+</template>

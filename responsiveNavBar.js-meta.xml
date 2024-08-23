@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__RecordPage</target>
+    </targets>
+     <targetConfigs>
+        <targetConfig targets="lightning__AppPage,lightning__RecordPage,lightning__HomePage">
+            <property name="navItems" type="String" label="Navigation Items (JSON)" description="List of navigation items in JSON format where each object contains a label ,target, openInNewTab, icon, subitems"/>
+            <property name="showProfile" type="Boolean" label="Show Profile Nav Item ?" />
+            <property name="showLogout" type="Boolean" label="Show Logout Nav Item ?" />
+            <property name="desktopComapanyLogoStyle" type="String" label="Company Logo CSS (Desktop) "/>
+            <property name="tabCompanyLogoStyle" type="String" label="Company Logo CSS (Tab) "/>
+            <property name="mobileComapnyLogoStyle" type="String" label="Company Logo CSS (Mobile)" />
+            <property name="profileLink" type="String" label="Profile Page URL" />
+            <property name="logoutLink" type="String" label="Logout Page URL" />
+
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
