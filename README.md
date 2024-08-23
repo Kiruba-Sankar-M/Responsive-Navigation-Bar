@@ -1,3 +1,7 @@
+![image](https://github.com/user-attachments/assets/5053e7be-c6d8-47e9-8034-ef7b3e3b31fb)
+
+
+
 Hey Salesforce Developers!
 
 I'm excited to share a repository with you that contains code for a responsive Lightning Web Component (LWC) navigation bar. With a simple drag-and-drop, this component allows you to easily build a fully functional navigation bar without the need to write any code!
@@ -96,5 +100,5 @@ Feel free to tweak the CSS by cloning the repository to match your branding!
 
 Thank you, and happy learning!
 
-![image](https://github.com/user-attachments/assets/8f950822-aef1-40ad-af37-a9145fb18f17)
-![image](https://github.com/user-attachments/assets/fc8512ef-450b-4844-8a2f-829b7c69ba20)
+
+
